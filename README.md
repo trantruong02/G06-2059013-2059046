@@ -38,4 +38,4 @@
     + Không sắp xếp điểm theo thứ tự giảm dần
     
 5. Đánh giá Mức độ hoàn thiện: 70% - 80%
-[G06-2059013-2059046-Github](https://github.com/trantruong02/G06-2059013-2059046.git)
+6. Link github: [G06-2059013-2059046-Github](https://github.com/trantruong02/G06-2059013-2059046.git)
