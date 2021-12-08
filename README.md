@@ -16,9 +16,7 @@
   + Hiển thị được thông tin cá nhân cơ bản của thí sinh.
   + Hiển thị thời gian thi của thí sinh đó
   + Xuất ra danh sách điểm của các thí sinh (Họ tên, ID, Điểm...)
-  
-  + Có thể chấm điểm cho thí sinh. (x)
-  (x): Visual có thể Build nhưng file.exe thi không.
+  + Có thể chấm điểm cho thí sinh. 
   
 - Thi:
   + Có chức năng mở đề cho thí sinh.
