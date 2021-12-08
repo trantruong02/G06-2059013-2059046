@@ -1,5 +1,5 @@
 # G06-2059013-2059046
-##BÁO CÁO ĐỒ ÁN CUỐI KÌ CỦA NHÓM 06
+                                      ## BÁO CÁO ĐỒ ÁN CUỐI KÌ CỦA NHÓM 06
 1. Thành viên nhóm
 - Quách Phú Hào - 2059013 - 2059013@itec.hcmus.edu.vn
 - Trương Tố Trân - 2059046 - 2059046@itec.hcmus.edu.vn
