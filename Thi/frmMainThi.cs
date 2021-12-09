@@ -111,7 +111,7 @@ namespace Thi
             }
 
             reader.Close();
-
+             
             foreach(var s in lstQues)
             {
                 txtCauHoi.Text = s.CauHoi;
@@ -146,7 +146,7 @@ namespace Thi
         /* Các button để xem câu trước và câu sau*/
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if(CauHienTai < lstQues.Count - 1)
+            if (CauHienTai < lstQues.Count - 1)
             {
                 CauHienTai++;
                 ResetRadioButton(lstQues[CauHienTai].CauTraLoi);

@@ -8,13 +8,14 @@ namespace SoanDe
 {
     class KetQua
     {
+        public String Made { get; set; }
         public String name { get; set; }
         public String Id { get; set; }
         public String thoiGianThi { get; set; }
         public String Diem { get; set; }
         public override string ToString()
         {
-            return this.name + " | " + this.Id + " | " + this.Diem + " | " + this.thoiGianThi;
+            return this.Made + " | " + this.name + " | " + this.Id + " | " + this.Diem + " | " + this.thoiGianThi;
         }
     }
 }

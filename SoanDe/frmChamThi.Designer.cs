@@ -40,6 +40,8 @@ namespace SoanDe
             this.lbDiem = new System.Windows.Forms.Label();
             this.txtDiem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMade = new System.Windows.Forms.TextBox();
             this.btnCham = new System.Windows.Forms.Button();
             this.lbSBD = new System.Windows.Forms.Label();
             this.lbHoten = new System.Windows.Forms.Label();
@@ -51,6 +53,7 @@ namespace SoanDe
             this.txtDe = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtBaiLam = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,7 +71,7 @@ namespace SoanDe
             this.exit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(761, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(887, 26);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -126,7 +129,7 @@ namespace SoanDe
             this.lbDiem.AutoSize = true;
             this.lbDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDiem.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbDiem.Location = new System.Drawing.Point(323, 53);
+            this.lbDiem.Location = new System.Drawing.Point(456, 60);
             this.lbDiem.Name = "lbDiem";
             this.lbDiem.Size = new System.Drawing.Size(47, 18);
             this.lbDiem.TabIndex = 35;
@@ -136,16 +139,19 @@ namespace SoanDe
             // 
             this.txtDiem.Enabled = false;
             this.txtDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiem.Location = new System.Drawing.Point(390, 52);
+            this.txtDiem.Location = new System.Drawing.Point(509, 52);
             this.txtDiem.Multiline = true;
             this.txtDiem.Name = "txtDiem";
-            this.txtDiem.Size = new System.Drawing.Size(213, 28);
+            this.txtDiem.Size = new System.Drawing.Size(94, 28);
             this.txtDiem.TabIndex = 34;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
+            this.groupBox1.Controls.Add(this.btnRefresh);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtMade);
             this.groupBox1.Controls.Add(this.btnCham);
             this.groupBox1.Controls.Add(this.lbDiem);
             this.groupBox1.Controls.Add(this.lbSBD);
@@ -156,11 +162,27 @@ namespace SoanDe
             this.groupBox1.Controls.Add(this.txthoten);
             this.groupBox1.Controls.Add(this.txtTG);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.groupBox1.Location = new System.Drawing.Point(12, 31);
+            this.groupBox1.Location = new System.Drawing.Point(12, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(738, 86);
+            this.groupBox1.Size = new System.Drawing.Size(834, 86);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(317, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 18);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Đề";
+            // 
+            // txtMade
+            // 
+            this.txtMade.Location = new System.Drawing.Point(350, 54);
+            this.txtMade.Name = "txtMade";
+            this.txtMade.Size = new System.Drawing.Size(100, 24);
+            this.txtMade.TabIndex = 37;
             // 
             // btnCham
             // 
@@ -241,7 +263,7 @@ namespace SoanDe
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.txtDe);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 123);
+            this.groupBox3.Location = new System.Drawing.Point(75, 123);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(361, 387);
             this.groupBox3.TabIndex = 31;
@@ -263,7 +285,7 @@ namespace SoanDe
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.txtBaiLam);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(379, 123);
+            this.groupBox2.Location = new System.Drawing.Point(442, 123);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(371, 387);
             this.groupBox2.TabIndex = 32;
@@ -280,17 +302,27 @@ namespace SoanDe
             this.txtBaiLam.Size = new System.Drawing.Size(348, 360);
             this.txtBaiLam.TabIndex = 9;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(738, 15);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(81, 65);
+            this.btnRefresh.TabIndex = 39;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // frmChamThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(761, 534);
+            this.ClientSize = new System.Drawing.Size(887, 534);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmChamThi";
@@ -331,5 +363,8 @@ namespace SoanDe
         private System.Windows.Forms.TextBox txtBaiLam;
         private System.Windows.Forms.ToolStripMenuItem back;
         private System.Windows.Forms.Button btnCham;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMade;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

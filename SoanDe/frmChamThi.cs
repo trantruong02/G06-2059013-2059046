@@ -47,10 +47,9 @@ namespace SoanDe
                 lstCauhoi.Add(cauhoi);
             }
             reader.Close();
-
-            foreach (var s in lstCauhoi)
+            foreach(var d in lstCauhoi)
             {
-                txtDe.Text += s.DapAnDung;
+                txtDe.Text = d.DapAnDung;
             }
         }
 
@@ -68,8 +67,8 @@ namespace SoanDe
             if (open.ShowDialog() == DialogResult.OK)
             {
                 String filepath = open.FileName;
-                //int start = filepath.IndexOf("De");
-                //txtMade.Text = filepath.Substring(start, 4);
+                int start = filepath.IndexOf("_");
+                txtMade.Text = filepath.Substring(start, 4);
                 BaiLam(filepath);
             }
         }
@@ -100,55 +99,11 @@ namespace SoanDe
             {
                 txthoten.Text = m.Name;
                 txtSBD.Text = m.ID;
-                txtBaiLam.Text += m.TraLoi;
+                txtBaiLam.Text = m.TraLoi;
             }
         }
 
-        //private void btnChamBai_Click(object sender, EventArgs e)
-        //{
-        //    int diemThi = 0;
-        //    String s = String.Empty;
-        //    String m = String.Empty;
 
-        //    foreach(var ss in lstCauhoi)
-        //    {
-        //        s += ss.DapAnDung;
-        //        txtDe.Text = s;
-        //    }
-
-        //    foreach(var mm in lstExaminees)
-        //    {
-        //        m += mm.TraLoi;
-        //        txtBaiLam.Text = m;
-        //    }
-
-        //    for (int i = 0; i < m.Length; i++)
-        //    {
-        //        if (m[i] == s[i])
-        //            diemThi++;
-        //        txtDiem.Text = diemThi.ToString();
-        //    }
-        //}
-
-        private void export_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "Ket Qua .txt | *txt";
-            if(save.ShowDialog() == DialogResult.OK)
-            {
-                String filepath = save.FileName;
-                KetQua(filepath);
-            }
-        }
-        private void KetQua(string filepath)
-        {
-            StreamWriter writer = File.CreateText(filepath);
-            foreach (var s in lstKetQua)
-            {
-                String kq = s.name + "|" + s.Id + "|" + s.Diem + "|" + s.thoiGianThi;
-            }
-            writer.Close();
-        }
 
         private void back_Click(object sender, EventArgs e)
         {
@@ -166,13 +121,11 @@ namespace SoanDe
             foreach (var ss in lstCauhoi)
             {
                 s += ss.DapAnDung;
-                txtDe.Text = s;
             }
 
             foreach (var mm in lstExaminees)
             {
                 m += mm.TraLoi;
-                txtBaiLam.Text = m;
             }
 
             for (int i = 0; i < m.Length; i++)
@@ -181,6 +134,41 @@ namespace SoanDe
                     diemThi++;
                 txtDiem.Text = diemThi.ToString();
             }
+
+            KetQua kq = new KetQua();
+            kq.Made = txtMade.Text;
+            kq.name = txthoten.Text;
+            kq.Id = txtSBD.Text;
+            kq.Diem = txtDiem.Text;
+            kq.thoiGianThi = txtTG.Text;
+            lstKetQua.Add(kq);
+        }
+        private void export_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Ket Qua .txt | *txt";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                String filepath = save.FileName;
+                KetQua(filepath);
+            }
+        }
+        private void KetQua(string filepath)
+        {
+            StreamWriter writer = File.CreateText(filepath);
+            foreach (var s in lstKetQua)
+            {
+                String kq = s.Made + "|" + s.name + "|" + s.Id + "|" + s.Diem + "|" + s.thoiGianThi;
+                writer.WriteLine(kq);
+            }
+            writer.Close();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            lstCauhoi.Clear();
+            lstExaminees.Clear();
+            txtBaiLam.Text = txtDe.Text = txtDiem.Text = txthoten.Text = txtMade.Text = txtSBD.Text = txtTG.Text = String.Empty;
         }
     }
 }
